@@ -1,0 +1,10 @@
+<h1>Your Vaults</h1>
+<%= link_to 'Create New Vault', new_vault_path %>
+
+<ul>
+  <% @vaults.each do |vault| %>
+    <li>
+      <%= link_to vault.name, vault_path(vault) %>
+    </li>
+  <% end %>
+</ul>
