@@ -24,7 +24,7 @@ def login():
       # Call to database to verify login is correct and get a session token
       cookie = 'generated_session_token_from_dbcall'
       response = jsonify({'status': 'Login succeeded!'})
-      response.set_cookie('employeesession', cookie)
+      response.set_cookie('employeesession', value=cookie, max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None)
       return response
       
 @app.route('/employees', methods=['GET'])
