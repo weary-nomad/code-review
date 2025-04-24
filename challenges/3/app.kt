@@ -32,7 +32,7 @@ fun main() {
                     return@post
                 }
                 
-                val filenameRegex = Regex("^[a-zA-Z0-9]+\\.jpg$", RegexOption.IGNORE_CASE)
+                val filenameRegex = Regex("^.*.jpg$", RegexOption.IGNORE_CASE)
                 if (!filenameRegex.matches(fileName!!)) {
                     call.respond(HttpStatusCode.BadRequest, "Invalid filename. Use only letters, numbers, and '.jpg' extension.")
                     return@post
