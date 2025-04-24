@@ -12,6 +12,7 @@ import java.util.regex.Pattern
 import javax.imageio.ImageIO
 
 fun main() {
+    /* Pretend this is integrated with Apache and not its own server for this challenge. Usually we'd need to add other configurations ot get Netty to work with Apache, if someone wanted to do that. */
     embeddedServer(Netty, port = 8080) {
         routing {
             post("/imageCheck") {
