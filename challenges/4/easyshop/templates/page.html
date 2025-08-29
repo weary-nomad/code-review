@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Welcome to the Store</h1>
+
+    {% if product and price %}
+        <h2>Thank you for your purchase!</h2>
+        <p>You bought: <strong>{{ product }}</strong></p>
+        <p>Amount paid: <strong>${{ price }}</strong></p>
+        <hr>
+    {% endif %}
+
+    <div>
+        <h3>Water Bottle - $5</h3>
+        <form action="/api/water_bottle" method="POST">
+            <input type="hidden" name="price" value="5">
+            <button type="submit">Buy Water Bottle</button>
+        </form>
+    </div>
+
+    <div>
+        <h3>Tomato - $2</h3>
+        <form action="/api/tomato" method="POST">
+            <input type="hidden" name="price" value="2">
+            <button type="submit">Buy Tomato</button>
+        </form>
+    </div>
+
+    <div>
+        <h3>Whole Fish - $20</h3>
+        <form action="/api/fish" method="POST">
+            <input type="hidden" name="price" value="20">
+            <button type="submit">Buy Whole Fish</button>
+        </form>
+    </div>
+</body>
+</html>
