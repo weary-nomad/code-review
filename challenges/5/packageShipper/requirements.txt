@@ -1,0 +1,8 @@
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-WTF==1.1.1
+WTForms==3.0.1
+Flask-Login==0.6.3
+bcrypt==4.0.1
+Werkzeug==2.3.7
+email-validator==2.0.0

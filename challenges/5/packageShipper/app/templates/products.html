@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Products - Package Shipper{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2>Shipping Products</h2>
+        <p class="lead">All shipping labels are completely FREE!</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Envelope</h5>
+                <p class="card-text">Perfect for documents and small items</p>
+                <h3 class="text-success">FREE</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Small Box</h5>
+                <p class="card-text">Ideal for small packages and gifts</p>
+                <h3 class="text-success">FREE</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Medium Box</h5>
+                <p class="card-text">Great for regular-sized shipments</p>
+                <h3 class="text-success">FREE</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Large Box</h5>
+                <p class="card-text">For bigger items and bulk shipments</p>
+                <h3 class="text-success">FREE</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6 text-center">
+        <a href="{{ url_for('main.purchase') }}" class="btn btn-primary btn-lg">Create Shipping Label</a>
+    </div>
+</div>
+{% endblock %}

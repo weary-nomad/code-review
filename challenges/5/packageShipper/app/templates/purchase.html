@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Purchase Label - Package Shipper{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>Create Shipping Label</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="mb-3">
+                        {{ form.customer_name.label(class="form-label") }}
+                        {{ form.customer_name(class="form-control") }}
+                        {% for error in form.customer_name.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.package_type.label(class="form-label") }}
+                        {{ form.package_type(class="form-select") }}
+                        {% for error in form.package_type.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.destination.label(class="form-label") }}
+                        {{ form.destination(class="form-control", placeholder="123 Main St, City, State 12345") }}
+                        {% for error in form.destination.errors %}
+                            <div class="text-danger">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="d-grid">
+                        {{ form.submit(class="btn btn-success btn-lg") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

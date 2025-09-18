@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Label Created - Package Shipper{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="alert alert-success">
+            <h4>Shipping Label Created Successfully!</h4>
+            <p>Your free shipping label has been generated.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Shipping Label Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Label ID:</strong> #{{ label.id }}<br>
+                        <strong>Package Type:</strong> {{ label.package_type.replace('_', ' ').title() }}<br>
+                        <strong>Destination:</strong> {{ label.destination }}<br>
+                        <strong>Created:</strong> {{ label.created_at.strftime('%Y-%m-%d %H:%M') }}
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border p-3 bg-light">
+                            <h6>Shipping Label</h6>
+                            <hr>
+                            <strong>To:</strong><br>
+                            {{ label.customer_name | safe }}<br>
+                            {{ label.destination }}<br><br>
+                            <small>Label #{{ label.id }} - {{ label.package_type.replace('_', ' ').title() }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('main.products') }}" class="btn btn-primary">Create Another Label</a>
+            <a href="{{ url_for('main.index') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
