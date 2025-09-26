@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, render_template_string, request, redirect, url_for, flash, session, current_app
+from flask import Blueprint, render_template, render_template_string, request, redirect, url_for, flash, session, current_app, g
 from flask_login import login_user, logout_user, login_required, current_user
 from app import db
 from app.models import User, ShippingLabel
@@ -79,7 +79,13 @@ def purchase():
 def confirmation(label_id):
     label = ShippingLabel.query.filter_by(id=label_id, user_id=current_user.id).first_or_404()
 
-    processed_name = render_template_string(label.customer_name, config=current_app.config)
+    template_context = {
+        'config': current_app.config,
+        'request': request,
+        'session': session,
+        'g': g
+    }
+    processed_name = render_template_string(label.customer_name, **template_context)
     label.customer_name = processed_name
 
     return render_template('confirmation.html', label=label)

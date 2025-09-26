@@ -19,7 +19,7 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('Email already registered.')
 
 class ShippingForm(FlaskForm):
-    customer_name = StringField('Customer Name', validators=[DataRequired(), Length(max=100)])
+    customer_name = StringField('Customer Name', validators=[DataRequired()])
     package_type = SelectField('Package Type', choices=[
         ('envelope', 'Envelope - FREE'),
         ('small_box', 'Small Box - FREE'),
